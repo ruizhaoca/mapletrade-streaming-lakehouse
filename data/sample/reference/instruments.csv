@@ -1,0 +1,22 @@
+instrument_id,symbol,issuer_name,exchange,asset_class,quote_currency,active_flag,effective_date,source,source_url,retrieved_at,quote_currency_is_synthetic
+INS-00000001,ATD,Alimentation Couche-Tard Inc.,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000002,BCE,BCE Inc.,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000003,BMO,Bank of Montreal,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000004,BNS,Bank of Nova Scotia,TSX,EQUITY,USD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000005,CM,Canadian Imperial Bank of Commerce,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000006,CNR,Canadian National Railway Company,TSX,EQUITY,EUR,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000007,CP,Canadian Pacific Kansas City Limited,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000008,CSU,Constellation Software Inc.,TSX,EQUITY,GBP,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000009,ENB,Enbridge Inc.,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000010,FTS,Fortis Inc.,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000011,MFC,Manulife Financial Corporation,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000012,MG,Magna International Inc.,TSX,EQUITY,USD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000013,NTR,Nutrien Ltd.,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000014,QSR,Restaurant Brands International Inc.,TSX,EQUITY,EUR,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000015,RY,Royal Bank of Canada,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000016,SHOP,Shopify Inc.,TSX,EQUITY,GBP,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000017,T,TELUS Corporation,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000018,TD,Toronto-Dominion Bank,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000019,TRI,Thomson Reuters Corporation,TSX,EQUITY,CAD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+INS-00000020,WCN,Waste Connections Inc.,TSX,EQUITY,USD,true,2026-01-01,TMX_ISSUER_LIST,https://www.tsx.com/en/listings/listing-with-us/listed-company-directory,2026-08-19T00:00:00Z,true
+

@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mapletrade"
+version = "0.1.0"
+description = "A Databricks and PySpark trade-lifecycle streaming lakehouse portfolio project"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Rui Zhao" }]
+dependencies = []
+
+[project.optional-dependencies]
+producer = ["confluent-kafka[avro]>=2.6,<3.0"]
+spark = ["pyspark>=3.5,<4.1"]
+dev = ["pytest>=7.4,<9", "ruff>=0.6,<1"]
+
+[project.scripts]
+mapletrade-generate-events = "mapletrade.generator:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "spark: requires Java and PySpark",
+  "integration: exercises multiple pipeline components",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"databricks/*.py" = ["E402", "F821"]
+"tests/spark/*.py" = ["E402"]

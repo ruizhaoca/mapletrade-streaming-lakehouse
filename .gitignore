@@ -1,0 +1,29 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.databricks/
+.idea/
+.vscode/
+
+# Generated or downloaded data
+data/generated/
+data/raw/
+data/processed/
+data/upload/
+!data/sample/
+
+# Streaming state and secrets
+checkpoints/
+*.pem
+*.key
+*.p12

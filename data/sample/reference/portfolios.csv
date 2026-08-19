@@ -1,0 +1,7 @@
+portfolio_id,portfolio_name,strategy,base_currency,active_flag,effective_date,source
+PORT-001,Canadian Growth Fund,LONG_ONLY,CAD,true,2026-01-01,SYNTHETIC
+PORT-002,North America Equity Fund,LONG_SHORT,CAD,true,2026-01-01,SYNTHETIC
+PORT-003,Dividend Income Fund,LONG_ONLY,CAD,true,2026-01-01,SYNTHETIC
+PORT-004,Technology Opportunities Fund,LONG_SHORT,CAD,true,2026-01-01,SYNTHETIC
+PORT-005,Internal Trading Book,TRADING,CAD,true,2026-01-01,SYNTHETIC
+

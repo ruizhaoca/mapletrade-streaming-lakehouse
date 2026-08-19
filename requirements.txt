@@ -1,0 +1,4 @@
+# Install only what is needed for local generation and Kafka publishing.
+# Databricks Runtime already provides PySpark and Delta Lake.
+-e .[producer]
+

@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "TradeEvent",
+  "namespace": "ca.mapletrade.events.v1",
+  "doc": "Complete-snapshot trade-booking lifecycle event.",
+  "fields": [
+    {"name": "event_id", "type": "string"},
+    {"name": "trade_id", "type": "string"},
+    {"name": "event_version", "type": "int"},
+    {
+      "name": "event_type",
+      "type": {"type": "enum", "name": "EventType", "symbols": ["NEW", "AMEND", "CANCEL"]}
+    },
+    {"name": "event_ts", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "produced_ts", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+    {"name": "source_system", "type": "string", "default": "SYNTHETIC_OMS"},
+    {"name": "portfolio_id", "type": "string"},
+    {"name": "instrument_id", "type": "string"},
+    {
+      "name": "side",
+      "type": {"type": "enum", "name": "Side", "symbols": ["BUY", "SELL"]}
+    },
+    {"name": "quantity", "type": "long"},
+    {"name": "price", "type": {"type": "bytes", "logicalType": "decimal", "precision": 18, "scale": 4}},
+    {"name": "trade_currency", "type": "string"}
+  ]
+}
+
