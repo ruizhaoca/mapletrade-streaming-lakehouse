@@ -60,7 +60,10 @@ def write_manifest(row: Row) -> None:
 def load_dataset(name: str, path: str, source_url: str, transform) -> None:
     started_at = datetime.now(UTC).replace(tzinfo=None)
     try:
-        frame = transform(read_csv(path)).cache()
+        # Serverless compute does not support DataFrame cache/persist. These
+        # reference inputs are deliberately small, so recomputation is cheaper
+        # and more portable than materializing a cache.
+        frame = transform(read_csv(path))
         row_count = frame.count()
         frame.write.mode("overwrite").option("overwriteSchema", "true").saveAsTable(
             f"{catalog}.reference.{name}"
@@ -83,7 +86,6 @@ def load_dataset(name: str, path: str, source_url: str, transform) -> None:
                 error_message=None,
             )
         )
-        frame.unpersist()
         print(f"Loaded {row_count:,} rows into {catalog}.reference.{name}")
     except Exception as exc:
         write_manifest(
