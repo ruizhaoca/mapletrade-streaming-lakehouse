@@ -5,9 +5,9 @@ MapleTrade is a Databricks lakehouse portfolio project that processes synthetic
 Streaming, Spark SQL, and Delta Lake create traceable event outcomes, authoritative current
 trade state, portfolio positions, and CAD-denominated traded-notional products.
 
-> **Execution status:** local generation, public FX acquisition, and unit tests are verified.
-> The Confluent-to-Databricks run requires the account configuration described in the runbook
-> and must not be claimed as executed until that run succeeds.
+> **Execution status:** verified end to end in Kafka mode on 2026-08-22. A Databricks Serverless
+> Workflow processed 11,676 Confluent Avro messages through Bronze, Silver, Gold, and eight
+> reconciliation checks. The first successful run completed in 1 minute 36 seconds.
 
 ## Why this project exists
 
@@ -202,9 +202,18 @@ Verified locally on 2026-08-19:
 - the Bank of Canada API request and normalization completed successfully; and
 - 10,000 base trades produced 11,676 deterministic messages with seed `2026`.
 
-Spark/Delta behavior, restart recovery, and the final Kafka or replay execution remain Databricks
-acceptance steps. Do not convert planned or local-only results into résumé claims.
-Use the [portfolio evidence checklist](docs/evidence_checklist.md) during the cloud run.
+Verified in Databricks Kafka mode on 2026-08-22:
+
+- Workflow run `392859892688787` succeeded in 1 minute 36 seconds;
+- Bronze and the Silver outcome ledger each contained 11,676 rows;
+- Silver Current contained 9,901 authoritative trades;
+- Gold contained 100 position rows and 20 currency-notional rows;
+- outcomes included applied, duplicate, quarantined, stale-version, and version-conflict cases; and
+- all eight reconciliation checks passed with zero differences.
+
+Restart recovery and count stability remain the final acceptance step. See the
+[evidence manifest](docs/evidence/README.md) and
+[portfolio evidence checklist](docs/evidence_checklist.md).
 
 ## Deliberate MVP boundaries
 
