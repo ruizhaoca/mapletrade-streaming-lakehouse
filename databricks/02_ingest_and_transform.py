@@ -52,7 +52,7 @@ if source_mode == "kafka":
     kafka_key = dbutils.secrets.get(scope=scope, key="kafka-api-key")
     kafka_secret = dbutils.secrets.get(scope=scope, key="kafka-api-secret")
     jaas = (
-        "org.apache.kafka.common.security.plain.PlainLoginModule required "
+        "kafkashaded.org.apache.kafka.common.security.plain.PlainLoginModule required "
         f'username="{kafka_key}" password="{kafka_secret}";'
     )
     source = (
