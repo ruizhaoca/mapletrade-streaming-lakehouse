@@ -42,8 +42,6 @@ if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", catalog):
 
 names = TableNames(catalog)
 dbutils.widgets.text("replay_path", f"{names.volume_root}/replay")
-spark.conf.set("spark.sql.adaptive.enabled", "true")
-spark.conf.set("spark.sql.shuffle.partitions", "8")
 
 
 if source_mode == "kafka":
