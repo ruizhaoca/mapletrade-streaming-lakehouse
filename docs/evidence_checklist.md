@@ -3,30 +3,29 @@
 Capture evidence only after the Databricks run succeeds. Redact workspace URLs, user email
 addresses, cluster identifiers, and all credentials.
 
-## Required screenshots
+## Required screenshots — completed 2026-08-22
 
-1. Confluent topic showing partitions and non-zero message count.
-2. Databricks Workflow graph with both tasks succeeded.
-3. Bronze sample showing payload format and Kafka metadata.
-4. Outcome counts grouped by `outcome`.
-5. Current-state counts grouped by `trade_status`.
-6. Position and currency-notional Gold samples.
-7. Reconciliation rows showing all checks passed.
-8. Unity Catalog lineage from Silver Current to the Gold products.
+- [x] Confluent topic showing partitions and a produced trade event.
+- [x] Databricks Workflow graph with both tasks succeeded.
+- [x] Bronze sample showing payload format and Kafka metadata.
+- [x] Outcome counts grouped by `outcome`.
+- [x] Current-state counts grouped by `trade_status`.
+- [x] Position and currency-notional Gold samples.
+- [x] Reconciliation rows showing all checks passed for the initial and restart runs.
+- [x] Unity Catalog lineage from Silver Current to both Gold products.
 
-## Required recorded values
+## Required recorded values — completed
 
-- Generated source-message count
-- Bronze message count
-- Outcome count by category
-- Current trade count by status
-- Gold group counts
-- Workflow run ID and duration
-- Restart-test before/after counts
-- Executed mode: `kafka` or `replay`
+- [x] Generated source-message count
+- [x] Bronze message count
+- [x] Outcome count by category
+- [x] Current trade count by status
+- [x] Gold group counts
+- [x] Workflow run IDs and durations
+- [x] Restart-test before/after counts
+- [x] Executed mode: `kafka`
 
 ## Claims gate
 
-Do not use “Kafka-to-Databricks,” “restart-safe,” “reconciled,” or measured performance claims on a
-résumé until the corresponding evidence above exists.
-
+The evidence above supports “Kafka-to-Databricks,” “reconciled,” and tested restart-safety claims
+for this MVP workload. It does not support unexecuted scale or performance-improvement claims.

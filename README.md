@@ -7,7 +7,8 @@ trade state, portfolio positions, and CAD-denominated traded-notional products.
 
 > **Execution status:** verified end to end in Kafka mode on 2026-08-22. A Databricks Serverless
 > Workflow processed 11,676 Confluent Avro messages through Bronze, Silver, Gold, and eight
-> reconciliation checks. The first successful run completed in 1 minute 36 seconds.
+> reconciliation checks. The first successful run completed in 1 minute 36 seconds; a 49-second
+> restart run preserved every business-table count and passed all eight checks again.
 
 ## Why this project exists
 
@@ -205,14 +206,17 @@ Verified locally on 2026-08-19:
 Verified in Databricks Kafka mode on 2026-08-22:
 
 - Workflow run `392859892688787` succeeded in 1 minute 36 seconds;
+- restart run `889120302900539` succeeded in 49 seconds without republishing events;
 - Bronze and the Silver outcome ledger each contained 11,676 rows;
 - Silver Current contained 9,901 authoritative trades;
 - Gold contained 100 position rows and 20 currency-notional rows;
-- outcomes included applied, duplicate, quarantined, stale-version, and version-conflict cases; and
-- all eight reconciliation checks passed with zero differences.
+- outcomes included applied, duplicate, quarantined, stale-version, and version-conflict cases;
+- both runs completed all eight reconciliation checks with zero failures; and
+- Bronze, Silver, and Gold counts remained unchanged after restart.
 
-Restart recovery and count stability remain the final acceptance step. See the
-[evidence manifest](docs/evidence/README.md) and
+The redacted [execution evidence](docs/evidence/README.md) includes the Confluent topic and Avro
+subject, Workflow runs, Kafka metadata, layer and outcome counts, reconciliation results, Gold
+samples, and Unity Catalog lineage. The completed acceptance criteria are documented in the
 [portfolio evidence checklist](docs/evidence_checklist.md).
 
 ## Deliberate MVP boundaries
