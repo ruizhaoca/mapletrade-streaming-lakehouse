@@ -10,7 +10,3 @@ Add extensions only after the core Workflow passes and the repository contains r
 6. Historical daily positions and market valuation.
 7. Production monitoring and alerts.
 8. Environment-specific deployment automation.
-
-Terraform, Lakeflow Declarative Pipelines, and SCD Type 2 should be added only when a concrete
-requirement justifies them.
-
