@@ -1,6 +1,6 @@
 # Optional Spark performance experiment
 
-This experiment is intentionally outside the critical two-day path. Run it only after the complete
+This experiment is intentionally outside the MVP. Run it only after the complete
 Workflow and reconciliation pass.
 
 ## Question
