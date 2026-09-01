@@ -58,7 +58,7 @@ CANCEL  → CANCELLED, only at a higher accepted version
 
 The failure generator delays only older `AMEND` messages, not the initial `NEW`. Buffering an
 orphan `AMEND` that arrives before its `NEW` would require an additional pending-state design and
-is deliberately outside the two-day MVP.
+is outside the MVP.
 
 ## Retry behavior
 
