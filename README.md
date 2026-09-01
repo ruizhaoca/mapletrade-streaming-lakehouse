@@ -222,16 +222,17 @@ subject, Workflow runs, Kafka metadata, layer and outcome counts, reconciliation
 samples, and Unity Catalog lineage. The completed acceptance criteria are documented in the
 [portfolio evidence checklist](docs/evidence_checklist.md).
 
-## Deliberate MVP boundaries
+## MVP scope and design trade-offs
 
-The MVP excludes Delta Change Data Feed, Terraform, Lakeflow Declarative Pipelines, SCD Type 2,
-dashboards, multiple environments, and production alerting. Gold is rebuilt deterministically from
-the authoritative Silver current-state table because the demonstrated volume is small and the full
-rebuild is easy to verify.
+This MVP prioritizes correctness, replay safety, and verifiable reconciliation over
+production-scale operational breadth. At the demonstrated volume, Gold is rebuilt
+deterministically from the authoritative `silver.trade_current` table; full recomputation
+is inexpensive, simple to recover, and easy to verify.
 
-The design remains CDF-ready: Silver Current is the only source of truth, Gold has stable business
-keys, and the aggregation functions are reusable. CDF is a future optimization, not a prerequisite
-for correctness.
+The design remains ready for incremental Gold processing with Delta Change Data Feed (CDF):
+Silver Current is the authoritative current-state source, Gold tables have stable business
+keys, and the aggregation logic is reusable. CDF is therefore a future performance
+optimization, not a dependency for correctness.
 
-See [roadmap.md](roadmap.md) for extensions and [performance.md](docs/performance.md) for the optional
-Spark experiment.
+Further scaling and operational enhancements are tracked in [roadmap.md](roadmap.md).
+The optional benchmark is documented in [performance.md](docs/performance.md).
