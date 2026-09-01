@@ -27,38 +27,38 @@ The numbers show execution order. Every table and view shown below is governed i
 `mapletrade_dev` Unity Catalog catalog.
 
 ```mermaid
-flowchart TB
+flowchart LR
     subgraph S["0 · Sources"]
         direction TB
-        GEN["Synthetic OMS<br/>NEW / AMEND / CANCEL"] --> KAFKA["Confluent Kafka<br/>Avro + Schema Registry"]
+        GEN["Synthetic OMS<br/>NEW / AMEND<br/>CANCEL"] --> KAFKA["Confluent Kafka<br/>Avro +<br/>Schema Registry"]
         TMX["TMX instruments"] --> REFLOAD["Batch reference load"]
         BOC["Bank of Canada FX"] --> REFLOAD
         PORT["Synthetic portfolios"] --> REFLOAD
         REFLOAD --> REF[("Reference tables<br/>and ingestion_manifest")]
     end
 
-    subgraph T1["Workflow Task 1<br/>ingest_and_transform"]
+    subgraph T1["Workflow Task 1<br/>ingest_and<br/>transform"]
         direction TB
-        INGEST["1 · Structured Streaming<br/>availableNow + checkpoint"]
-        BRONZE[("2 · bronze.trade_events<br/>Raw message and source metadata")]
+        INGEST["1 · Structured<br/>Streaming<br/>availableNow +<br/>checkpoint"]
+        BRONZE[("2 · bronze.<br/>trade_events<br/>Raw message and<br/>source metadata")]
         VALIDATE["3 · Parse, enrich,<br/>and validate"]
-        SEQUENCE["4 · Sequence and idempotency<br/>event_id / event_version / payload_hash"]
-        OUTCOMES[("5A · silver.trade_event_<br/>outcomes<br/>One outcome per message")]
+        SEQUENCE["4 · Sequence and<br/>idempotency<br/>event_id /<br/>event_version /<br/>payload_hash"]
+        OUTCOMES[("5A · silver.<br/>trade_event_<br/>outcomes<br/>One outcome<br/>per message")]
         MERGE["5B · Version-aware<br/>Delta MERGE"]
-        CURRENT[("6 · silver.trade_current<br/>One row per trade_id")]
+        CURRENT[("6 · silver.<br/>trade_current<br/>One row per<br/>trade_id")]
         INGEST --> BRONZE --> VALIDATE --> SEQUENCE
         SEQUENCE --> OUTCOMES
         SEQUENCE --> MERGE --> CURRENT
     end
 
-    subgraph T2["Workflow Task 2<br/>build_gold_and_reconcile"]
+    subgraph T2["Workflow Task 2<br/>build_gold_and<br/>reconcile"]
         direction TB
-        BOOKED["7 · gold.vw_valid_<br/>booked_trade"]
-        GOLD["8 · Deterministic<br/>Spark SQL build"]
-        POSITION[("9A · gold.position_snapshot")]
-        NOTIONAL[("9B · gold.net_traded_notional_<br/>by_currency")]
+        BOOKED["7 · gold.<br/>vw_valid_<br/>booked_trade"]
+        GOLD["8 · Deterministic<br/>Spark SQL<br/>build"]
+        POSITION[("9A · gold.<br/>position_snapshot")]
+        NOTIONAL[("9B · gold.<br/>net_traded_<br/>notional_by_<br/>currency")]
         CHECK["10 · Spark SQL<br/>reconciliation"]
-        RESULTS[("11 · ops.pipeline_<br/>reconciliation")]
+        RESULTS[("11 · ops.<br/>pipeline_<br/>reconciliation")]
         BOOKED --> GOLD --> POSITION
         GOLD --> NOTIONAL
         POSITION --> CHECK
