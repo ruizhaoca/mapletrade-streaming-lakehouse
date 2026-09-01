@@ -30,7 +30,7 @@ The numbers show execution order. Every table and view shown below is governed i
 flowchart LR
     subgraph S["0 · Sources"]
         direction TB
-        GEN["Synthetic OMS<br/>NEW / AMEND<br/>CANCEL"] --> KAFKA["Confluent Kafka<br/>Avro +<br/>Schema Registry"]
+        GEN["Synthetic OMS<br/>NEW / AMEND /<br/>CANCEL"] --> KAFKA["Confluent Kafka<br/>Avro +<br/>Schema Registry"]
         TMX["TMX instruments"] --> REFLOAD["Batch reference load"]
         BOC["Bank of Canada FX"] --> REFLOAD
         PORT["Synthetic portfolios"] --> REFLOAD
