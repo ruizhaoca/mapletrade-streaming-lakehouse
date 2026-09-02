@@ -4,6 +4,9 @@
 
 *Published Databricks AI/BI dashboard summarizing current booked trades, portfolio and currency-level notionals, event-processing outcomes, and pipeline reconciliation.*
 
+---
+## Project Overview
+
 MapleTrade is a Databricks lakehouse portfolio project that processes synthetic
 `NEW`, `AMEND`, and `CANCEL` trade-booking events from Confluent Kafka. PySpark Structured
 Streaming, Spark SQL, and Delta Lake create traceable event outcomes, authoritative current
@@ -14,8 +17,6 @@ trade state, portfolio positions, and CAD-denominated traded-notional products.
 > reconciliation checks. The first successful run completed in 1 minute 36 seconds; a 49-second
 > restart run preserved every business-table count and passed all eight checks again.
 
-## Why this project exists
-
 The project demonstrates more than a happy-path medallion pipeline. It deliberately generates
 duplicate, invalid, late, and conflicting events and proves that:
 
@@ -25,6 +26,7 @@ duplicate, invalid, late, and conflicting events and proves that:
 - `CANCEL` produces `CANCELLED` current state and contributes nothing to Gold positions; and
 - independently recomputed Silver and Gold results reconcile.
 
+---
 ## Architecture
 
 The numbers show execution order. Every table and view shown below is governed in the
@@ -79,6 +81,7 @@ flowchart LR
 
 See [architecture.md](docs/architecture.md) for the processing rules and failure-recovery design.
 
+---
 ## Processing outcomes
 
 `silver.trade_event_outcomes` replaces separate physical quarantine, duplicate, and stale tables.
@@ -92,6 +95,7 @@ Convenience views expose each category.
 | `STALE_VERSION` | A lower version arrived after a newer accepted version |
 | `VERSION_CONFLICT` | The same trade/version carried different business content |
 
+---
 ## Data sources
 
 - Trade transactions are deterministic synthetic data; no customer or institutional trades are used.
@@ -103,6 +107,7 @@ The committed sample uses 20 instruments, five fictional portfolios, and Bank of
 2026-08-11. The default generator creates 10,000 base trades and approximately 11,000–12,000
 lifecycle messages after amendments, cancellations, and failure injection.
 
+---
 ## Repository structure
 
 ```text
@@ -119,6 +124,7 @@ mapletrade-streaming-lakehouse/
 └── docs/                     # Architecture, dictionary, runbook, decisions, performance
 ```
 
+---
 ## Local quick start
 
 Python 3.10 or later is required. Java is required only for local Spark tests; Databricks Runtime
@@ -148,6 +154,7 @@ data/upload/reference/   # instruments.csv, portfolios.csv, fx_rates.csv
 data/upload/replay/      # trade_events.jsonl and generation metadata
 ```
 
+---
 ## Publish to Confluent Kafka
 
 1. Create topic `mapletrade.trade-events.v1` with three partitions.
@@ -166,6 +173,7 @@ The Avro serializer registers the value schema and publishes with `trade_id` as 
 Producer idempotence and `acks=all` are enabled, while downstream event idempotency is enforced
 independently in Silver.
 
+---
 ## Run on Databricks
 
 The detailed checklist is in [runbook.md](docs/runbook.md). In summary:
@@ -182,6 +190,7 @@ If outbound Confluent connectivity is unavailable, upload `trade_events.jsonl` i
 `/Volumes/mapletrade_dev/ops/pipeline_state/replay/` and set `source_mode=replay`. The README and
 portfolio evidence must state which mode was actually executed.
 
+---
 ## Verification queries
 
 ```sql
@@ -201,6 +210,7 @@ ORDER BY checked_at DESC, check_name;
 
 A successful Workflow run must have no failed reconciliation checks.
 
+---
 ## Tests and current evidence
 
 Verified locally on 2026-08-19:
@@ -226,6 +236,7 @@ subject, Workflow runs, Kafka metadata, layer and outcome counts, reconciliation
 samples, and Unity Catalog lineage. The completed acceptance criteria are documented in the
 [portfolio evidence checklist](docs/evidence_checklist.md).
 
+---
 ## MVP scope and design trade-offs
 
 This MVP prioritizes correctness, replay safety, and verifiable reconciliation over
