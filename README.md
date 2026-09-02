@@ -2,7 +2,7 @@
 
 ![MapleTrade Databricks AI/BI dashboard showing full portfolio, trade-currency, event-outcome, and reconciliation results](docs/evidence/14_dashboard_executive_overview_all.png)
 
-*Published Databricks AI/BI dashboard with both filters set to `All`, showing the verified full-workload results.*
+*Published Databricks AI/BI dashboard summarizing current booked trades, portfolio and currency-level notionals, event-processing outcomes, and pipeline reconciliation.*
 
 MapleTrade is a Databricks lakehouse portfolio project that processes synthetic
 `NEW`, `AMEND`, and `CANCEL` trade-booking events from Confluent Kafka. PySpark Structured
