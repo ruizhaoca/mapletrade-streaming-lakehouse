@@ -52,6 +52,7 @@ deterministic rebuilds for the tested MVP workload.
 | [12a_gold_net_traded_notional_by_currency_sample.png](12a_gold_net_traded_notional_by_currency_sample.png) | Sample currency-level Gold aggregates and CAD conversion. |
 | [12b_gold_position_snapshot_sample.png](12b_gold_position_snapshot_sample.png) | Sample portfolio/instrument position aggregates. |
 | [13_unity_catalog_lineage.jpg](13_unity_catalog_lineage.jpg) | Unity Catalog lineage from Silver Current through the booked-trade view to both Gold tables. |
+| [14_dashboard_executive_overview_all.png](14_dashboard_executive_overview_all.png) | Published Databricks AI/BI dashboard with both filters set to `All`, including full-workload KPIs, event outcomes, Gold analytics, and eight passing reconciliation checks. |
 
 Together, these artifacts support the repository's Kafka-to-Databricks, lifecycle sequencing,
 reconciliation, and tested restart-safety claims.

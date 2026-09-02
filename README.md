@@ -1,5 +1,9 @@
 # MapleTrade Streaming Lakehouse
 
+![MapleTrade Databricks AI/BI dashboard showing full portfolio, trade-currency, event-outcome, and reconciliation results](docs/evidence/14_dashboard_executive_overview_all.png)
+
+*Published Databricks AI/BI dashboard with both filters set to `All`, showing the verified full-workload results.*
+
 MapleTrade is a Databricks lakehouse portfolio project that processes synthetic
 `NEW`, `AMEND`, and `CANCEL` trade-booking events from Confluent Kafka. PySpark Structured
 Streaming, Spark SQL, and Delta Lake create traceable event outcomes, authoritative current
